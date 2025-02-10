@@ -11,7 +11,7 @@ string,
   async (prefix,thunkAPI) => { 
     const { rejectWithValue } = thunkAPI 
     try{
-        const response =  await axios.get<TProduct[]>(`http://localhost:5000/products?cat_prefix=${prefix}`)
+        const response =  await axios.get<TProduct[]>(`/products?cat_prefix=${prefix}`)
         return response.data;
     }catch(err){
         if(axios.isAxiosError(err)){

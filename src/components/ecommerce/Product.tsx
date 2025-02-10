@@ -3,24 +3,26 @@ import { addToCart } from "@/store/cart/cartSlice";
 import { useAppDispatch } from "@/store/hooks";
 import { useEffect, useState } from "react";
 
-const Product = ({ id, img, price, title }: TProduct) => {
+const Product = ({ id, img, price, title , max , quantity}: TProduct) => {
 
-  const [isButtonClicked , setIsButtonClicked] = useState(0);
   const [isButtonDisabled , setIsButtonDisabled] = useState(false);
   const dispatch = useAppDispatch();
 
+  const remainingItemsQuantity = max-(quantity ?? 0);
+  const reachedToTheMaxNumber = remainingItemsQuantity <=0 ? true : false ;   
   useEffect(()=>{
-    if(!isButtonClicked) return;
+    if(!isButtonDisabled) return;
     setIsButtonDisabled(true);
     const timer = setTimeout(()=>{
       setIsButtonDisabled(false);
     },300);
     return ()=> clearTimeout(timer);
-  },[isButtonClicked])
+  },[isButtonDisabled])
 
   const addToCartHandler = () => {
     dispatch(addToCart(id))
-    setIsButtonClicked((prev)=>prev+1);
+    console.log("max : " + max , "quantity : " + quantity);
+    setIsButtonDisabled(true);
   }
   return (
     <div className=" w-full md:w-[180px] text-center mb-[25px]">
@@ -29,9 +31,10 @@ const Product = ({ id, img, price, title }: TProduct) => {
         <img src={img} alt={title} className="w-full md:w-[180px] h-[220px]" />
       </div>
       <p className="font-bold mt-[5px]">{title}</p>
-      <p className="mb-[5px]">{price} EGP</p>
+      <p className="mb-[5px]">{price.toFixed(2)} EGP</p>
+      <p className="mb-[5px]">{reachedToTheMaxNumber ? "You reached the limit." : "Max Quantity : " + remainingItemsQuantity }  </p>
       
-      <button disabled={isButtonDisabled} className="w-full py-[5px] bg-mainColor text-white" onClick={addToCartHandler}>
+      <button disabled={isButtonDisabled || reachedToTheMaxNumber} className="w-full py-[5px] bg-mainColor text-white" onClick={addToCartHandler}>
         {isButtonDisabled ? "Adding..." : "Add to Cart"}
       </button>
     </div>

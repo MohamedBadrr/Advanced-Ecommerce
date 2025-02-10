@@ -1,4 +1,5 @@
 import GridList from "@/components/common/GridList/GridList";
+import Heading from "@/components/common/Heading/Heading";
 import Loading from "@/components/common/Loading/Loading";
 import Category from "@/components/ecommerce/Category"
 import { actGetCategories } from "@/store/categories/categoriesSlice";
@@ -21,7 +22,10 @@ const Categories = () => {
     return <Loading  status={loading}/>
   }
   return (
-      <GridList noItems="There are no categories" data={categories} renderItem={(category)=> <Category  {...category} />} />
+      <div>
+        <Heading children="Categories" />
+        <GridList noItems="There are no categories" data={categories} renderItem={(category)=> <Category  {...category} />} />
+      </div>
   )
 }
 
