@@ -10,6 +10,7 @@ const Product = ({ id, img, price, title , max , quantity}: TProduct) => {
 
   const remainingItemsQuantity = max-(quantity ?? 0);
   const reachedToTheMaxNumber = remainingItemsQuantity <=0 ? true : false ;   
+ 
   useEffect(()=>{
     if(!isButtonDisabled) return;
     setIsButtonDisabled(true);

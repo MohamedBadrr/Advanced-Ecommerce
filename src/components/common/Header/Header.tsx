@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Container from "../Container";
 import { useAppSelector } from "@/store/hooks";
 import { getCartTotalQuantity } from "@/store/selectors";
@@ -8,6 +8,7 @@ const Header = () => {
   const TotalCartItems = useAppSelector(getCartTotalQuantity);
   const [isAnimate, setIsAnimate] = useState(false);
   const pumpQuantityAnimate = isAnimate ? "pumpQuantity" : "";
+  const navigate = useNavigate()
   useEffect(() => {
     if(!TotalCartItems) return;
     setIsAnimate(true);
@@ -24,7 +25,7 @@ const Header = () => {
           <a href="#" className="text-xl font-bold text-blue-500">
             E-Commerce
           </a>
-          <div className="relative flex ">
+          <div className="relative flex " onClick={()=> navigate("/cart")}>
             {/* basket Orders */}
             <p className={`${pumpQuantityAnimate} px-[5px] text-[12px] text-black bg-blue-400 rounded-[50%] absolute right-[16px] bottom-[20px]`}>
               {TotalCartItems}  
