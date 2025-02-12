@@ -25,30 +25,37 @@ const cartSlice = createSlice({
         }else{
             state.items[action.payload] = 1;
         }
+    },
+    changeItemQuantity:(state,action)=>{
+        state.items[action.payload.id] = action.payload.quantity;
+    },
+    cartItemRemove:(state , action)=>{
+        delete state.items[action.payload]
+        state.productsFullInfo = state.productsFullInfo.filter((el)=> el.id !== action.payload)
     }
     },
-    // extraReducers:(builder)=>{
-    //     builder.addCase(actGetProductsByItems.pending , (state) => {
-    //         state.loading = "pending";
-    //         state.error = null;
-    //     });
-    //     builder.addCase(actGetProductsByItems.fulfilled, (state, action) => {
-    //         state.loading = "succeeded";
-    //         state.productsFullInfo = action.payload; 
-    //         state.error = null;
-    //     }) ;
-    //     builder.addCase(actGetProductsByItems.rejected , (state , action) => {
-    //         state.loading = "failed";
-    //         if(action.payload && typeof(action.payload) === "string" ){
-    //             state.error = action.payload;
-    //         }
-    //     });
-    // }
+    extraReducers:(builder)=>{
+        builder.addCase(actGetProductsByItems.pending , (state) => {
+            state.loading = "pending";
+            state.error = null;
+        });
+        builder.addCase(actGetProductsByItems.fulfilled, (state, action) => {
+            state.loading = "succeeded";
+            state.productsFullInfo  = action.payload ; 
+            state.error = null;
+        }) ;
+        builder.addCase(actGetProductsByItems.rejected , (state , action) => {
+            state.loading = "failed";
+            if(action.payload && typeof(action.payload) === "string" ){
+                state.error = action.payload;
+            }
+        });
+    }
 
 });
 
 export {
     actGetProductsByItems  
 }
-export const {addToCart} = cartSlice.actions;
+export const {addToCart , changeItemQuantity , cartItemRemove} = cartSlice.actions;
 export default cartSlice.reducer;
