@@ -9,6 +9,7 @@ import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import Products from "@/pages/Products";
 import Register from "@/pages/Register";
+import WishList from "@/pages/WishList";
 import {createBrowserRouter , RouterProvider} from "react-router-dom"
 
 const router = createBrowserRouter([{
@@ -52,6 +53,9 @@ const router = createBrowserRouter([{
       {
         path:"cart",
         element:<Cart />
+      },{
+        path:"whishlist",
+        element:<WishList />
       }
     ]
   }])

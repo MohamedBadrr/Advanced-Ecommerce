@@ -32,8 +32,12 @@ const cartSlice = createSlice({
     cartItemRemove:(state , action)=>{
         delete state.items[action.payload]
         state.productsFullInfo = state.productsFullInfo.filter((el)=> el.id !== action.payload)
+    },
+    cartCleanUp:(state)=>{
+        state.productsFullInfo = []
     }
     },
+
     extraReducers:(builder)=>{
         builder.addCase(actGetProductsByItems.pending , (state) => {
             state.loading = "pending";
@@ -57,5 +61,5 @@ const cartSlice = createSlice({
 export {
     actGetProductsByItems  
 }
-export const {addToCart , changeItemQuantity , cartItemRemove} = cartSlice.actions;
+export const {addToCart , changeItemQuantity , cartItemRemove , cartCleanUp} = cartSlice.actions;
 export default cartSlice.reducer;

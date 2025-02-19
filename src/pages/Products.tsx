@@ -13,17 +13,19 @@ import { useParams } from "react-router-dom";
 const Products = () => {
   const dispatch = useAppDispatch();
   const { cat_prefix } = useParams();
-  const { products, error, loading } = useAppSelector(
+  const { products, error, loading  } = useAppSelector(
     (state) => state.products
   );
   const cartItems = useAppSelector((state) => state.cart.items);
+  const wishListItems = useAppSelector ((state)=>state.wishList.itemsId)
   const productFullInfo = products.map((product) => ({
     ...product,
     quantity: cartItems[product.id] || 0,
+    isLiked:wishListItems.includes(product.id)
   }));
   useEffect(() => {
     dispatch(actGetProductsByCat_Prefix(cat_prefix as string));
-    dispatch(productsCleanUp());
+    return ()=>{dispatch(productsCleanUp())}
   }, [dispatch, cat_prefix]);
 
   if (error) {

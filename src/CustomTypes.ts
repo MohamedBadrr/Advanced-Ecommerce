@@ -13,4 +13,5 @@ export type TCategory = {
     img: string;
     quantity?: number;
     max:number;
+    isLiked?:boolean
   }
