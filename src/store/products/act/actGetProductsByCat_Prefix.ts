@@ -1,4 +1,5 @@
 import { TProduct } from "@/CustomTypes";
+import axiosErrorHandler from "@/util/axiosErrorHandler";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -9,16 +10,14 @@ string,
 { rejectValue: string } 
 >("products/actGetProducts",
   async (prefix,thunkAPI) => { 
-    const { rejectWithValue } = thunkAPI 
+    const { rejectWithValue , signal } = thunkAPI 
     try{
-        const response =  await axios.get<TProduct[]>(`/products?cat_prefix=${prefix}`)
+        const response =  await axios.get<TProduct[]>(`/products?cat_prefix=${prefix}` , {
+          signal
+        })
         return response.data;
     }catch(err){
-        if(axios.isAxiosError(err)){
-            return rejectWithValue(err.response?.data.message || err.message)
-        } else {
-            return rejectWithValue("An unexpected error")
-        }
+      return rejectWithValue(axiosErrorHandler(err));
     }
   }  
 )

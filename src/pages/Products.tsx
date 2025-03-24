@@ -1,49 +1,29 @@
+
 import GridList from "@/components/common/GridList/GridList";
 import Heading from "@/components/common/Heading/Heading";
 import Loading from "@/components/common/Loading/Loading";
 import Product from "@/components/ecommerce/Product";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import {
-  actGetProductsByCat_Prefix,
-  productsCleanUp,
-} from "@/store/products/productsSlice";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import useProducts from "@/hooks/useProducts";
+
 
 const Products = () => {
-  const dispatch = useAppDispatch();
-  const { cat_prefix } = useParams();
-  const { products, error, loading  } = useAppSelector(
-    (state) => state.products
-  );
-  const cartItems = useAppSelector((state) => state.cart.items);
-  const wishListItems = useAppSelector ((state)=>state.wishList.itemsId)
-  const productFullInfo = products.map((product) => ({
-    ...product,
-    quantity: cartItems[product.id] || 0,
-    isLiked:wishListItems.includes(product.id)
-  }));
-  useEffect(() => {
-    dispatch(actGetProductsByCat_Prefix(cat_prefix as string));
-    return ()=>{dispatch(productsCleanUp())}
-  }, [dispatch, cat_prefix]);
-
+ 
+  const { error , loading , productFullInfo ,cat_prefix } = useProducts();
   if (error) {
     return <Loading error={error} />;
   }
   if (loading === "pending") {
-    return <Loading status={loading} />;
+    return <Loading status={loading} type="product"/>;
   }
-
   return (
-   <div>
-    <Heading children={cat_prefix?.toUpperCase() + " Products "} /> 
-     <GridList
-      noItems="There are no products in this category"
-      data={productFullInfo}
-      renderItem={(product) => <Product {...product} />}
-    />
-   </div>
+    <div>
+      <Heading title={cat_prefix?.toUpperCase() + " Products "} />
+      <GridList
+        noItems="There are no products in this category"
+        data={productFullInfo}
+        renderItem={(product) => <Product {...product} />}
+      />
+    </div>
   );
 };
 

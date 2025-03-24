@@ -2,11 +2,11 @@ import { TProduct } from "@/CustomTypes";
 import { addToCart } from "@/store/cart/cartSlice";
 import { useAppDispatch } from "@/store/hooks";
 import { actLikeItem } from "@/store/wishList/wishListSlice";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 
-const Product = ({
+const Product = memo(({
   id,
   img,
   price,
@@ -76,6 +76,6 @@ const Product = ({
       </button>
     </div>
   );
-};
+});
 
 export default Product;

@@ -1,29 +1,31 @@
 
-
-import MainLayout from "@/layouts/MainLayout/MainLayout";
-import AboutUs from "@/pages/AboutUs";
-import Cart from "@/pages/Cart";
-import Categories from "@/pages/Categories";
+import { lazy } from "react";
+// import MainLayout from "@/layouts/MainLayout/MainLayout";
+const MainLayout = lazy(()=>import("@/layouts/MainLayout/MainLayout"))
+const AboutUs = lazy(()=>import ("@/pages/AboutUs"))
+const Cart = lazy(()=> import("@/pages/Cart"))
+const Categories = lazy(()=> import ("@/pages/Categories"))
+const Home = lazy(()=> import ("@/pages/Home"))
+const Login = lazy(()=> import ("@/pages/Login"))
+const Products = lazy(()=> import("@/pages/Products"))
+const Register = lazy(()=> import("@/pages/Register"))
+const WishList = lazy(()=> import("@/pages/WishList"))
 import Error from "@/pages/Error";
-import Home from "@/pages/Home";
-import Login from "@/pages/Login";
-import Products from "@/pages/Products";
-import Register from "@/pages/Register";
-import WishList from "@/pages/WishList";
 import {createBrowserRouter , RouterProvider} from "react-router-dom"
+import SuspenseHandler from "@/components/feedback/SuspenseHandler";
 
 const router = createBrowserRouter([{
     path:"/",
-    element:<MainLayout />,
+    element:<SuspenseHandler><MainLayout /></SuspenseHandler>,
     errorElement:<Error />,
     children:[
       {
         index:true,
-        element:<Home />
+        element:<SuspenseHandler><Home /></SuspenseHandler>
       },
       {
         path:"categories",
-        element: <Categories />
+        element:<SuspenseHandler> <Categories /></SuspenseHandler>
       },
       {
         path:"/products/:cat_prefix",
@@ -36,31 +38,34 @@ const router = createBrowserRouter([{
         //         }
         //     return true ;
         // },
-        element:<Products />
+        element:<SuspenseHandler> <Products /> </SuspenseHandler>
       },
       {
         path:"about-us",
-        element:<AboutUs />
+        element:<SuspenseHandler> <AboutUs /> </SuspenseHandler>
       },
       {
         path:"login",
-        element:<Login />
+        element:<SuspenseHandler> <Login /> </SuspenseHandler>
       },
       {
         path:"register",
-        element:<Register />
+        element:<SuspenseHandler> <Register /> </SuspenseHandler>
       },
       {
         path:"cart",
-        element:<Cart />
+        element:<SuspenseHandler> <Cart /> </SuspenseHandler>
       },{
         path:"whishlist",
-        element:<WishList />
-      }
-    ]
-  }])
+        element:<SuspenseHandler> <WishList /> </SuspenseHandler>
+      }, 
+    ],
+  },
+
+])
 const AppRouter = () => {
   return <RouterProvider router={router}/>;
 };
 
 export default AppRouter;
+ 

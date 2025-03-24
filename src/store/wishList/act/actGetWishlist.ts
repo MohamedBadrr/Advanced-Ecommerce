@@ -1,4 +1,5 @@
 import { TProduct } from "@/CustomTypes";
+import axiosErrorHandler from "@/util/axiosErrorHandler";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -17,12 +18,7 @@ const actGetWishlist = createAsyncThunk('wishList/actGetWishlist', async(_,thunk
 
     return wishListProducts ;
     }catch(error){
-        if(axios.isAxiosError(error)){
-            return rejectWithValue(error.response?.data.message || error.message)
-        }else
-        {
-            return rejectWithValue("An unexpected error")
-        }
+        return rejectWithValue(axiosErrorHandler(error));
     }
 })
 

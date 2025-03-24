@@ -1,3 +1,4 @@
+import LootieHandler from "@/components/feedback/LootieHandler";
 
 type GridListProps<T> = {
   data: T[];
@@ -15,7 +16,7 @@ type GridListProps<T> = {
         return <div>{renderItem(item)}</div>;
       })
     ) : (
-      <p className="font-bold text-[25p]">{noItems}</p>
+      <LootieHandler type="empty" message={noItems} />
     );
   return (
     <div className={`grow grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 place-items-center mt-[25px] w-full mx-auto`}>
