@@ -97,5 +97,47 @@
       "max": 3
     }
   ],
-  "wishList": []
+  "wishList": [],
+  "users": [
+    {
+      "email": "badr59497@gmail.com1",
+      "password": "$2a$10$3Ye9FUOT/biqvZnqfejQNOnZVOBElivrUWp3OMu95nVDzefOmVgHa",
+      "firstName": "Mohamed",
+      "lastName": "AbdelMajidi",
+      "id": "Ob7npCA"
+    },
+    {
+      "email": "badr59497@gmail.com",
+      "password": "$2a$10$3J6NZIawk2nEjiUG4UxD6efT/edpyKxNpJAvCSFs76zzh2iSXxWzO",
+      "firstName": "Mohamed",
+      "lastName": "AbdelMajidi",
+      "id": "ITuB4bu"
+    },
+    {
+      "email": "badr59497@gmail.comm",
+      "password": "$2a$10$NaXrQsAfgxbhzkwQV8N.w.DwKwQj9ItqLE.5NXzTuEog7AkSfLT.i",
+      "id": "cLzjNej"
+    },
+    {
+      "email": "badr59497@gmail.comm3",
+      "password": "$2a$10$ZkE2W6wtfSQEt0Ob0Ex9O.rguEazFkNSAVjkXZlhKRQsdaRBOvpcK",
+      "firstName": "Mohamed",
+      "lastName": "AbdelMajidi",
+      "id": "vzsgU9z"
+    },
+    {
+      "email": "badr59497@gmail.com123",
+      "password": "$2a$10$SzpBVbgV7gM0IzLqrZPcBOpK3tVQdZn7WY9nhbEvyVmiQfGif.lj2",
+      "firstName": "Mohamed",
+      "lastName": "AbdelMajidi",
+      "id": "ExCLDq3"
+    },
+    {
+      "email": "abadr59497@gmail.com",
+      "password": "$2a$10$LdS7Qxr7YYeRkekb0WML8uGpPtwvSmk5pmBLxPLHjX/OXYgRpOmBa",
+      "firstName": "Mohamed",
+      "lastName": "AbdelMajidi",
+      "id": "JxGrWbn"
+    }
+  ]
 }

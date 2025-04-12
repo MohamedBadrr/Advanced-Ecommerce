@@ -4,14 +4,25 @@ import categories from "./categories/categoriesSlice"
 import products from "./products/productsSlice"
 import cart from "./cart/cartSlice"
 import wishList from './wishList/wishListSlice'
+import auth from './auth/authSlice'
 import { persistStore, persistReducer , FLUSH , REHYDRATE , REGISTER , PAUSE , PERSIST , PURGE} from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
-
-const persistConfig = {
-  key: 'root',
+const rootPersistConfig = {
+  key:"root",
   storage,
-  whiteList: ['cart']
+  whiteList:["cart" , "auth"]
 }
+
+const authPersistConfig = {
+  key:"auth",
+  storage,
+  whiteList:["login"]
+}
+// const persistConfig = {
+//   key: 'root',
+//   storage,
+//   whiteList: ['cart']
+// }
 const CartPersistConfig = {
   key: 'cart',
   storage,
@@ -24,14 +35,16 @@ const WishListPersistConfig = {
   whiteList : ['itemsId']
 }
 
+
 const rootReducer = combineReducers({
+  auth : persistReducer(authPersistConfig , auth),
   categories,
   products,
-  wishList : persistReducer(WishListPersistConfig , wishList),
+  wishList :persistReducer(WishListPersistConfig , wishList),
   cart: persistReducer(CartPersistConfig, cart),
 })
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
 
 const store = configureStore({
   reducer: persistedReducer,

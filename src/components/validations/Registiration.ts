@@ -18,7 +18,7 @@ export const validationSchema = Yup.object({
   email: Yup.string().email().required("Email is required"),
   password: Yup.string()
     .required("Password is required")
-    .min(8, "First Name must be at least 8 characters"),
+    .min(3, "First Name must be at least 8 characters"),
   confirmPassword: Yup.string()
     .required("Confirm Password is required")
     .oneOf([Yup.ref("password")], "Password must match"),

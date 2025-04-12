@@ -10,9 +10,11 @@ const Login = lazy(()=> import ("@/pages/Login"))
 const Products = lazy(()=> import("@/pages/Products"))
 const Register = lazy(()=> import("@/pages/Register"))
 const WishList = lazy(()=> import("@/pages/WishList"))
+const Profile = lazy(()=> import("@/pages/Profile"))
 import Error from "@/pages/Error";
 import {createBrowserRouter , RouterProvider} from "react-router-dom"
-import SuspenseHandler from "@/components/feedback/SuspenseHandler";
+import SuspenseHandler from "@/components/feedback/SuspenseHandler";  
+import ProtectedRoute from "@/components/auth/ProtectedRoute";
 
 const router = createBrowserRouter([{
     path:"/",
@@ -54,10 +56,16 @@ const router = createBrowserRouter([{
       },
       {
         path:"cart",
-        element:<SuspenseHandler> <Cart /> </SuspenseHandler>
+        element:<ProtectedRoute><SuspenseHandler> <Cart /> </SuspenseHandler></ProtectedRoute>
       },{
         path:"whishlist",
-        element:<SuspenseHandler> <WishList /> </SuspenseHandler>
+        element:<ProtectedRoute><SuspenseHandler> <WishList /> </SuspenseHandler></ProtectedRoute>
+        
+      }, 
+    {
+        path:"profile",
+        element:<ProtectedRoute><SuspenseHandler> <Profile /> </SuspenseHandler></ProtectedRoute>
+        
       }, 
     ],
   },
