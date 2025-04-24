@@ -154,7 +154,7 @@ const Header = () => {
                           Profile
                         </a>
                         <Link
-                          to="/orders"
+                          to="profile/orders"
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
                         >
                           Orders

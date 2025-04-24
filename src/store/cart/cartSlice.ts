@@ -35,9 +35,12 @@ const cartSlice = createSlice({
     },
     cartCleanUp:(state)=>{
         state.productsFullInfo = []
-    }
     },
-
+    cartRemoveItemsAfterPlaceOrder:(state)=>{
+        state.items = {}
+        state.productsFullInfo = []
+    },
+    },
     extraReducers:(builder)=>{
         builder.addCase(actGetProductsByItems.pending , (state) => {
             state.loading = "pending";
@@ -61,5 +64,5 @@ const cartSlice = createSlice({
 export {
     actGetProductsByItems  
 }
-export const {addToCart , changeItemQuantity , cartItemRemove , cartCleanUp} = cartSlice.actions;
+export const {addToCart , changeItemQuantity , cartItemRemove , cartCleanUp , cartRemoveItemsAfterPlaceOrder} = cartSlice.actions;
 export default cartSlice.reducer;

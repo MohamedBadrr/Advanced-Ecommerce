@@ -15,3 +15,10 @@ export type TCategory = {
     max:number;
     isLiked?:boolean
   }
+
+  export type TOrder = {
+    id:number;
+    userId:number;
+    items : TProduct[];
+    subTotal : string; 
+  } 

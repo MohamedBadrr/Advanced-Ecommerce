@@ -4,12 +4,14 @@ import NotFoundAnimation from "../../assets/lottieFiles/NotFoundAnimation.json";
 import ErrorAnimation from "../../assets/lottieFiles/ErrorAnimation.json";
 import EmptyShopping from "../../assets/lottieFiles/EmptyShopping.json";
 import LoadingShopping from "../../assets/lottieFiles/LoadingShopping.json";
+import Success from "../../assets/lottieFiles/Success.json";
 import Container from "../common/Container";
 const lootieFiles = {
   error: ErrorAnimation,
   empty: EmptyShopping,
   loading: LoadingShopping,
   notFound : NotFoundAnimation,
+  success: Success,
 };
 
 type LootieHandlerProps = {

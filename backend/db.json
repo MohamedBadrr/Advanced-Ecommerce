@@ -139,5 +139,168 @@
       "lastName": "AbdelMajidi",
       "id": "JxGrWbn"
     }
+  ],
+  "orders": [
+    {
+      "userId": "ITuB4bu",
+      "items": [
+        {
+          "id": "4",
+          "title": "Cotton t-shirt",
+          "price": 100,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 3
+        },
+        {
+          "id": "5",
+          "title": "Sweatshirt shorts",
+          "price": 300,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 2
+        }
+      ],
+      "subTotal": 900,
+      "id": 1
+    },
+    {
+      "userId": "ITuB4bu",
+      "items": [
+        {
+          "id": "4",
+          "title": "Cotton t-shirt",
+          "price": 100,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 3
+        },
+        {
+          "id": "5",
+          "title": "Sweatshirt shorts",
+          "price": 300,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 2
+        }
+      ],
+      "subTotal": 900,
+      "id": 2
+    },
+    {
+      "userId": "ITuB4bu",
+      "items": [
+        {
+          "id": "4",
+          "title": "Cotton t-shirt",
+          "price": 100,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 3
+        },
+        {
+          "id": "5",
+          "title": "Sweatshirt shorts",
+          "price": 300,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 2
+        }
+      ],
+      "subTotal": 900,
+      "id": 3
+    },
+    {
+      "userId": "ITuB4bu",
+      "items": [
+        {
+          "id": "5",
+          "title": "Sweatshirt shorts",
+          "price": 300,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 1
+        }
+      ],
+      "subTotal": 300,
+      "id": 4
+    },
+    {
+      "userId": "ITuB4bu",
+      "items": [
+        {
+          "id": "1",
+          "title": "Regular Fit Jersey top",
+          "price": 249,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "title": "Regular Fit Jersey top",
+          "price": 229,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 1
+        }
+      ],
+      "subTotal": 478,
+      "id": 5
+    },
+    {
+      "userId": "ITuB4bu",
+      "items": [
+        {
+          "id": "5",
+          "title": "Sweatshirt shorts",
+          "price": 300,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 1
+        }
+      ],
+      "subTotal": 300,
+      "id": 6
+    },
+    {
+      "userId": "ITuB4bu",
+      "items": [
+        {
+          "id": "1",
+          "title": "Regular Fit Jersey top",
+          "price": 249,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "title": "Regular Fit Jersey top",
+          "price": 229,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 1
+        },
+        {
+          "id": "3",
+          "title": "Cotton polo shirt",
+          "price": 200,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 1
+        }
+      ],
+      "subTotal": 678,
+      "id": 7
+    },
+    {
+      "userId": "ITuB4bu",
+      "items": [
+        {
+          "id": "4",
+          "title": "Cotton t-shirt",
+          "price": 100,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "title": "Sweatshirt shorts",
+          "price": 300,
+          "img": "https://picsum.photos/200/300",
+          "quantity": 2
+        }
+      ],
+      "subTotal": 700,
+      "id": 8
+    }
   ]
 }
